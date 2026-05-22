@@ -1,18 +1,20 @@
-# VPCPA Static HTML v5
+# VPCPA Static HTML v6
 
-This version includes the formal English service pages.
+This version adds a formal About Us page and updates office information.
 
-## Key updates from v4
+## Key updates from v5
 
-1. Six service pages have been replaced with full English copy v2.
-2. Each service page now has its own title, meta description and contact CTA.
-3. Homepage service cards continue to link to the service pages.
-4. Footer quick links have been added.
-5. sitemap.xml has been updated.
+1. about.html added.
+2. About Us page includes firm overview, Professional Team, Partner profile and Offices.
+3. Navigation About link now points to about.html.
+4. Office information now includes both 3/F and Room 2112 to 13, 21/F, Cosco Tower.
+5. Homepage contact section and website footer have been updated with the two office locations.
+6. sitemap.xml updated to include about.html.
 
 ## Pages included
 
 index.html
+about.html
 services/audit-and-assurance.html
 services/taxation.html
 services/accounting-and-bookkeeping.html
@@ -40,13 +42,10 @@ Grand Millennium Plaza,
 183 Queen’s Road Central,
 Hong Kong
 
+Room 2112 to 13, 21/F, Cosco Tower,
+Grand Millennium Plaza,
+183 Queen’s Road Central,
+Hong Kong
+
 Email: info@vp-cpa.com
 Tel: (852) 2156 1234
-
-## Before formal launch
-
-1. Copy in the official logo.
-2. Add favicon.png, apple-touch-icon.png and og-image.jpg.
-3. Test all service links.
-4. Confirm the final domain and canonical URL.
-5. Upload to hosting and submit sitemap.xml to Google Search Console.
