@@ -84,6 +84,14 @@ p {
   min-width: 280px;
 }
 
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 48px;
+  max-width: 230px;
+  object-fit: contain;
+}
+
 .brand-mark {
   display: grid;
   place-items: center;
@@ -94,6 +102,14 @@ p {
   color: white;
   font-weight: 800;
   letter-spacing: 0.03em;
+}
+
+.brand-fallback {
+  display: none;
+}
+
+.brand-fallback-visible {
+  display: grid;
 }
 
 .brand-name {
