@@ -1,19 +1,29 @@
-# VPCPA Static HTML v9
+# VPCPA Static HTML v10
 
-This version replaces the placeholder brand assets with assets derived from the actual VPCPA logo provided by the user.
+This version fixes the logo background issue.
 
-## Key updates from v8
+## Key updates from v9
 
-1. favicon.png regenerated from the actual company logo.
-2. favicon.ico regenerated from the actual company logo.
-3. apple-touch-icon.png regenerated from the actual company logo.
-4. og-image.jpg regenerated using the actual company logo.
-5. brand-mark-source.png stored under assets/images for reference.
-6. If no header logo file existed, vpcpa-logo.png has been created from the supplied logo image.
+1. vpcpa-logo.png regenerated with transparent background.
+2. favicon.png regenerated with transparent background.
+3. favicon.ico regenerated with transparent background.
+4. apple-touch-icon.png regenerated with transparent background.
+5. og-image.jpg regenerated using the transparent logo mark, so the logo no longer appears inside a white box.
 
-## Important note
+## GitHub Pages testing note
 
-If you have a separate full horizontal logo for the website header, you can still overwrite:
+After replacing files on GitHub Pages, the favicon may still show the old version because browsers cache favicon files strongly.
+
+Recommended checks:
+1. Hard refresh the page.
+2. Open in incognito mode.
+3. Add a temporary query string when testing, e.g. /assets/images/favicon.png?v=10.
+4. Wait a few minutes for GitHub Pages cache to refresh.
+
+## Main files to replace
+
 assets/images/vpcpa-logo.png
-
-The generated icon assets already use the supplied company logo mark.
+assets/images/favicon.png
+assets/images/favicon.ico
+assets/images/apple-touch-icon.png
+assets/images/og-image.jpg

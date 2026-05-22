@@ -1,8 +1,23 @@
-Generated launch assets now use the actual VPCPA logo mark supplied by the user.
+v10 assets regenerated from the actual company logo with transparent background processing.
 
-1. brand-mark-source.png
-2. favicon.png
-3. favicon.ico
-4. apple-touch-icon.png
-5. og-image.jpg
-6. vpcpa-logo.png
+Files:
+1. vpcpa-logo.png
+   Transparent background logo for website header.
+
+2. brand-mark-source.png
+   Transparent background source logo mark.
+
+3. favicon.png
+   Transparent favicon PNG.
+
+4. favicon.ico
+   Transparent multi-size ICO favicon.
+
+5. apple-touch-icon.png
+   Transparent Apple touch icon.
+
+6. og-image.jpg
+   Social sharing image. The image itself has a designed background, but the logo inside it has no white box.
+
+Important:
+Browsers cache favicons aggressively. After upload, use hard refresh or open the site in incognito mode to verify the new icon.
