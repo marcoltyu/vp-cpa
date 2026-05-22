@@ -1,40 +1,19 @@
-# VPCPA Static HTML v8
+# VPCPA Static HTML v9
 
-This version adds launch-ready brand assets.
+This version replaces the placeholder brand assets with assets derived from the actual VPCPA logo provided by the user.
 
-## Key updates from v7
+## Key updates from v8
 
-1. favicon.png added.
-2. favicon.ico added.
-3. apple-touch-icon.png added.
-4. og-image.jpg added for WhatsApp, LinkedIn and social sharing preview.
-5. HTML head updated with favicon.ico fallback.
-6. v7 dropdown menu and all service pages retained.
+1. favicon.png regenerated from the actual company logo.
+2. favicon.ico regenerated from the actual company logo.
+3. apple-touch-icon.png regenerated from the actual company logo.
+4. og-image.jpg regenerated using the actual company logo.
+5. brand-mark-source.png stored under assets/images for reference.
+6. If no header logo file existed, vpcpa-logo.png has been created from the supplied logo image.
 
-## Pages included
+## Important note
 
-index.html
-about.html
-services/audit-and-assurance.html
-services/taxation.html
-services/accounting-and-bookkeeping.html
-services/corporate-secretarial.html
-services/business-advisory.html
-services/sfc-licensed-corporations.html
-
-## Important logo instruction
-
-Copy the official logo file to:
-
+If you have a separate full horizontal logo for the website header, you can still overwrite:
 assets/images/vpcpa-logo.png
 
-The generated favicon and social image use a clean VP mark. They can be replaced later if you want them to use the exact official logo mark.
-
-## Recommended final checks
-
-1. Confirm logo displays correctly after copying vpcpa-logo.png.
-2. Open index.html, about.html and all service pages.
-3. Test desktop dropdown menu.
-4. Test mobile menu.
-5. Check Email and Telephone links.
-6. Upload to hosting test environment before pointing the live domain.
+The generated icon assets already use the supplied company logo mark.
