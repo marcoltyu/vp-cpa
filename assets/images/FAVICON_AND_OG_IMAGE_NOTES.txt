@@ -1,0 +1,13 @@
+Recommended image files before launch:
+
+1. vpcpa-logo.png
+   Header logo, transparent background.
+
+2. favicon.png
+   32 x 32 or 64 x 64 PNG, preferably using the VP mark.
+
+3. apple-touch-icon.png
+   180 x 180 PNG, preferably using the VP mark.
+
+4. og-image.jpg
+   1200 x 630 JPG for WhatsApp, LinkedIn and social sharing preview.
