@@ -1264,7 +1264,7 @@ html[lang="zh-HK"] .serif-italic { font-style: normal; color: var(--gold-700); }
 /* ============================================================
    Responsive
    ============================================================ */
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .hero-grid { grid-template-columns: 1fr; gap: 56px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .partners-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1288,7 +1288,7 @@ html[lang="zh-HK"] .serif-italic { font-style: normal; color: var(--gold-700); }
   .timeline-item:nth-child(1), .timeline-item:nth-child(2) { border-bottom: 1px solid var(--hairline); }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .header-cta { display: none; }
   .main-nav {
     position: absolute; inset: 76px 16px auto 16px;
