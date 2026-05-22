@@ -1,14 +1,15 @@
-# VPCPA Static HTML v7
+# VPCPA Static HTML v8
 
-This version adds professional dropdown navigation.
+This version adds launch-ready brand assets.
 
-## Key updates from v6
+## Key updates from v7
 
-1. Desktop hover dropdown menu added for About.
-2. Desktop hover dropdown menu added for Services.
-3. Mobile navigation shows nested links in the menu.
-4. About dropdown links to About VPCPA, Professional Team and Offices.
-5. Services dropdown links to all six service pages.
+1. favicon.png added.
+2. favicon.ico added.
+3. apple-touch-icon.png added.
+4. og-image.jpg added for WhatsApp, LinkedIn and social sharing preview.
+5. HTML head updated with favicon.ico fallback.
+6. v7 dropdown menu and all service pages retained.
 
 ## Pages included
 
@@ -21,14 +22,19 @@ services/corporate-secretarial.html
 services/business-advisory.html
 services/sfc-licensed-corporations.html
 
-## Logo instruction
+## Important logo instruction
 
 Copy the official logo file to:
 
 assets/images/vpcpa-logo.png
 
-## Recommended image files before launch
+The generated favicon and social image use a clean VP mark. They can be replaced later if you want them to use the exact official logo mark.
 
-assets/images/favicon.png
-assets/images/apple-touch-icon.png
-assets/images/og-image.jpg
+## Recommended final checks
+
+1. Confirm logo displays correctly after copying vpcpa-logo.png.
+2. Open index.html, about.html and all service pages.
+3. Test desktop dropdown menu.
+4. Test mobile menu.
+5. Check Email and Telephone links.
+6. Upload to hosting test environment before pointing the live domain.
