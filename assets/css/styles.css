@@ -1352,3 +1352,131 @@ html[lang="zh-HK"] .serif-italic { font-style: normal; color: var(--gold-700); }
   .timeline-item { border-right: 0; border-bottom: 1px solid var(--hairline); }
   .timeline-item:last-child { border-bottom: 0; }
 }
+
+
+/* Cleanup v2: mobile layout repair for bilingual numbered sections */
+@media (max-width: 768px) {
+  .process-item,
+  .service-process-item,
+  .approach-item,
+  .feature-item,
+  .bilingual-item,
+  .numbered-item,
+  .timeline-item,
+  .step-item,
+  .principle-item,
+  .discipline-item {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+    column-gap: 0 !important;
+    row-gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .process-item > *,
+  .service-process-item > *,
+  .approach-item > *,
+  .feature-item > *,
+  .bilingual-item > *,
+  .numbered-item > *,
+  .timeline-item > *,
+  .step-item > *,
+  .principle-item > *,
+  .discipline-item > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .process-number,
+  .step-number,
+  .item-number,
+  .number,
+  .index,
+  .count {
+    display: block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin-bottom: 10px !important;
+    text-align: left !important;
+  }
+
+  .process-title,
+  .service-title,
+  .approach-title,
+  .feature-title,
+  .bilingual-title,
+  .item-title,
+  .step-title,
+  .principle-title,
+  .process-description,
+  .service-description,
+  .approach-description,
+  .feature-description,
+  .bilingual-description,
+  .item-description,
+  .step-description,
+  .principle-description {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .dark-section .container,
+  .blueprint-section .container,
+  .discipline-section .container,
+  .professional-section .container,
+  section[class*="blueprint"] .container,
+  section[class*="discipline"] .container,
+  section[class*="professional"] .container {
+    width: min(100% - 32px, var(--container, 1180px)) !important;
+    overflow: visible !important;
+  }
+
+  .dark-section [class*="grid"],
+  .blueprint-section [class*="grid"],
+  .discipline-section [class*="grid"],
+  .professional-section [class*="grid"],
+  section[class*="blueprint"] [class*="grid"],
+  section[class*="discipline"] [class*="grid"],
+  section[class*="professional"] [class*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  .zh,
+  .en,
+  [lang="zh"],
+  [lang="en"] {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  h1,
+  h2 {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .container,
+  .section-container,
+  .content-container {
+    width: min(100% - 28px, var(--container, 1180px)) !important;
+  }
+
+  .hero,
+  .section,
+  section {
+    overflow-x: hidden;
+  }
+}
