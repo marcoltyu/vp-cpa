@@ -1,29 +1,36 @@
-# VPCPA Static HTML v10
+# VPCPA Static HTML v11
 
-This version fixes the logo background issue.
+This version is prepared for GitHub Pages testing.
 
-## Key updates from v9
+## Key updates from v10
 
-1. vpcpa-logo.png regenerated with transparent background.
-2. favicon.png regenerated with transparent background.
-3. favicon.ico regenerated with transparent background.
-4. apple-touch-icon.png regenerated with transparent background.
-5. og-image.jpg regenerated using the transparent logo mark, so the logo no longer appears inside a white box.
+1. `.nojekyll` added for GitHub Pages.
+2. `404.html` added.
+3. Cache busting query strings added to CSS, JS and icon links.
+4. GitHub Pages testing checklist added.
+5. v10 transparent logo and icon assets retained.
 
-## GitHub Pages testing note
+## Upload instruction
 
-After replacing files on GitHub Pages, the favicon may still show the old version because browsers cache favicon files strongly.
+Upload the contents of this folder to the root of your GitHub Pages repository.
 
-Recommended checks:
-1. Hard refresh the page.
-2. Open in incognito mode.
-3. Add a temporary query string when testing, e.g. /assets/images/favicon.png?v=10.
-4. Wait a few minutes for GitHub Pages cache to refresh.
+Do not upload the folder itself as a nested directory unless your GitHub Pages root is set to that folder.
 
-## Main files to replace
+## Main files
 
-assets/images/vpcpa-logo.png
-assets/images/favicon.png
-assets/images/favicon.ico
-assets/images/apple-touch-icon.png
-assets/images/og-image.jpg
+index.html
+about.html
+404.html
+robots.txt
+sitemap.xml
+.nojekyll
+assets/
+services/
+
+## Final launch note
+
+The current sitemap and canonical links assume the final domain:
+
+https://www.vp-cpa.com/
+
+This is fine for final launch. During GitHub Pages testing, Google indexing is not the priority.
