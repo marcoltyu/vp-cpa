@@ -1,15 +1,14 @@
-# VPCPA Static HTML v6
+# VPCPA Static HTML v7
 
-This version adds a formal About Us page and updates office information.
+This version adds professional dropdown navigation.
 
-## Key updates from v5
+## Key updates from v6
 
-1. about.html added.
-2. About Us page includes firm overview, Professional Team, Partner profile and Offices.
-3. Navigation About link now points to about.html.
-4. Office information now includes both 3/F and Room 2112 to 13, 21/F, Cosco Tower.
-5. Homepage contact section and website footer have been updated with the two office locations.
-6. sitemap.xml updated to include about.html.
+1. Desktop hover dropdown menu added for About.
+2. Desktop hover dropdown menu added for Services.
+3. Mobile navigation shows nested links in the menu.
+4. About dropdown links to About VPCPA, Professional Team and Offices.
+5. Services dropdown links to all six service pages.
 
 ## Pages included
 
@@ -33,19 +32,3 @@ assets/images/vpcpa-logo.png
 assets/images/favicon.png
 assets/images/apple-touch-icon.png
 assets/images/og-image.jpg
-
-## Contact details used
-
-Venture Partners CPA Limited
-3/F, Cosco Tower,
-Grand Millennium Plaza,
-183 Queen’s Road Central,
-Hong Kong
-
-Room 2112 to 13, 21/F, Cosco Tower,
-Grand Millennium Plaza,
-183 Queen’s Road Central,
-Hong Kong
-
-Email: info@vp-cpa.com
-Tel: (852) 2156 1234
