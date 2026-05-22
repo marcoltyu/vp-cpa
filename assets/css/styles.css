@@ -1480,3 +1480,86 @@ html[lang="zh-HK"] .serif-italic { font-style: normal; color: var(--gold-700); }
     overflow-x: hidden;
   }
 }
+
+
+/* Cleanup v3: language display priority fix
+   The Claude redesign used component rules such as `.hv-list li { display: grid; }`.
+   Those rules appeared after the original [data-lang] hiding rules and accidentally
+   made both English and Chinese list items visible. These rules must come last. */
+
+html:not([lang="zh-HK"]) [data-lang="zh"],
+html[lang="en-HK"] [data-lang="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="zh"],
+html[lang="en-HK"] [data-lang-inline="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="en"],
+html[lang="en-HK"] [data-lang-inline="en"] {
+  display: inline !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="zh"] {
+  display: inline !important;
+}
+
+/* Hero visual list needs grid for the visible language only */
+html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
+html[lang="en-HK"] .hv-list li[data-lang="en"],
+html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
+  display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) !important;
+  gap: 14px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Visible block language elements elsewhere */
+html:not([lang="zh-HK"]) p[data-lang="en"],
+html:not([lang="zh-HK"]) div[data-lang="en"],
+html:not([lang="zh-HK"]) section[data-lang="en"],
+html:not([lang="zh-HK"]) article[data-lang="en"],
+html[lang="en-HK"] p[data-lang="en"],
+html[lang="en-HK"] div[data-lang="en"],
+html[lang="en-HK"] section[data-lang="en"],
+html[lang="en-HK"] article[data-lang="en"],
+html[lang="zh-HK"] p[data-lang="zh"],
+html[lang="zh-HK"] div[data-lang="zh"],
+html[lang="zh-HK"] section[data-lang="zh"],
+html[lang="zh-HK"] article[data-lang="zh"] {
+  display: block !important;
+}
+
+/* Mobile safeguard for the hero visual list */
+@media (max-width: 768px) {
+  .hero-visual {
+    min-height: auto !important;
+  }
+
+  .hv-list {
+    display: grid !important;
+    gap: 20px !important;
+  }
+
+  .hv-list li {
+    min-width: 0 !important;
+  }
+
+  .hv-list li b,
+  .hv-list li span,
+  .hv-list li {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+}
