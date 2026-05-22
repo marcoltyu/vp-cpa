@@ -1,0 +1,1 @@
+Place official logo here as vpcpa-logo.png, or update index.html to use vpcpa-logo.svg.
