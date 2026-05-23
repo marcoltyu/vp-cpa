@@ -81,3 +81,47 @@
     }
   });
 })();
+
+
+// Cleanup v5: robust language switcher for desktop and mobile
+(function () {
+  const STORAGE_KEY = "vpcpa_language";
+  const root = document.documentElement;
+
+  function normalise(lang) {
+    return lang === "zh" || lang === "zh-HK" ? "zh" : "en";
+  }
+
+  function applyLanguage(lang) {
+    const chosen = normalise(lang);
+    root.setAttribute("lang", chosen === "zh" ? "zh-HK" : "en-HK");
+    localStorage.setItem(STORAGE_KEY, chosen);
+
+    document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
+      btn.classList.toggle("active", normalise(btn.getAttribute("data-lang-switch")) === chosen);
+      btn.setAttribute("aria-pressed", String(normalise(btn.getAttribute("data-lang-switch")) === chosen));
+    });
+
+    // Close mobile nav after language choice, if the site uses an open class.
+    const nav = document.querySelector(".main-nav");
+    const navToggle = document.querySelector(".nav-toggle");
+    if (nav && nav.classList.contains("open")) {
+      nav.classList.remove("open");
+    }
+    if (navToggle) {
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const initial = saved || (root.getAttribute("lang") === "zh-HK" ? "zh" : "en");
+  applyLanguage(initial);
+
+  document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      applyLanguage(btn.getAttribute("data-lang-switch"));
+    });
+  });
+
+  window.vpcpaSetLanguage = applyLanguage;
+})();
