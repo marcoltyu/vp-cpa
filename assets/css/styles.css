@@ -1717,3 +1717,54 @@ html[lang="zh-HK"] article[data-lang="zh"] {
     display: inline-flex;
   }
 }
+
+
+/* Cleanup v6: do not show extra language toggles added in v5.
+   Use Claude's original .lang-toggle design only. */
+.header-lang-toggle,
+.mobile-lang-toggle {
+  display: none !important;
+}
+
+/* Cleanup v6: make original Claude language toggle functional without changing its design */
+.lang-toggle button {
+  cursor: pointer;
+}
+
+.lang-toggle button.active {
+  pointer-events: auto;
+}
+
+/* Keep language display priority at the end */
+html:not([lang="zh-HK"]) [data-lang="zh"],
+html[lang="en-HK"] [data-lang="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="zh"],
+html[lang="en-HK"] [data-lang-inline="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="en"],
+html[lang="en-HK"] [data-lang-inline="en"] {
+  display: inline !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="zh"] {
+  display: inline !important;
+}
+
+html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
+html[lang="en-HK"] .hv-list li[data-lang="en"],
+html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
+  display: grid !important;
+}
