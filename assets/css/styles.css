@@ -1563,3 +1563,42 @@ html[lang="zh-HK"] article[data-lang="zh"] {
     overflow-wrap: break-word !important;
   }
 }
+
+
+/* Cleanup v4: fix hero visual list grid text wrapping
+   The text after <b> must live inside one grid child. */
+.hv-list li .hv-copy {
+  grid-column: 2;
+  min-width: 0;
+  display: block;
+}
+
+.hv-list li .hv-copy b {
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hv-list li .hv-copy span {
+  display: block;
+  max-width: 100%;
+  color: #d9e2ee;
+  word-break: normal;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+@media (max-width: 768px) {
+  html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
+  html[lang="en-HK"] .hv-list li[data-lang="en"],
+  html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
+    grid-template-columns: 24px minmax(0, 1fr) !important;
+    align-items: start !important;
+  }
+
+  .hv-list li .hv-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
