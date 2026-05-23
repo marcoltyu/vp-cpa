@@ -1,0 +1,15 @@
+VPCPA GitHub Pages safe version.
+
+Important:
+1. Upload the CONTENTS of this folder to the repository root.
+2. Keep .nojekyll at the repository root.
+3. Do not upload markdown cleanup notes or SCSS files.
+4. GitHub Pages should serve this as a static HTML site.
+5. If using GitHub Actions, use a static HTML Pages workflow, not a Jekyll build workflow.
+
+Recommended GitHub Pages setting:
+Settings > Pages > Build and deployment > Source: Deploy from a branch
+Branch: main
+Folder: /root
+
+If using Actions and it still runs Jekyll, disable that workflow or switch to static HTML deployment.
