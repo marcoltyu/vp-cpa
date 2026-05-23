@@ -85,41 +85,68 @@
 
 
 
-// Cleanup v6: use Claude's original .lang-toggle design and make it stable
+
+
+// Cleanup v7: final language switcher using Claude's original .lang-toggle UI only
 (function () {
   const STORAGE_KEY = "vpcpa_language";
   const root = document.documentElement;
 
-  function normalise(lang) {
-    return lang === "zh" || lang === "zh-HK" ? "zh" : "en";
+  function normalise(value) {
+    if (!value) return "en";
+    value = String(value).toLowerCase();
+    return value.includes("zh") ? "zh" : "en";
   }
 
-  function getButtons() {
-    return Array.from(document.querySelectorAll(".lang-toggle button, [data-lang-switch]"));
+  function getSwitcherButtons() {
+    return Array.from(document.querySelectorAll(".lang-toggle button, [data-i18n-switch]"));
+  }
+
+  function buttonLanguage(button) {
+    return normalise(
+      button.getAttribute("data-i18n-switch") ||
+      button.getAttribute("data-lang") ||
+      button.dataset.lang ||
+      button.textContent
+    );
   }
 
   function applyLanguage(lang) {
     const chosen = normalise(lang);
     root.setAttribute("lang", chosen === "zh" ? "zh-HK" : "en-HK");
-    localStorage.setItem(STORAGE_KEY, chosen);
+    root.setAttribute("data-current-lang", chosen);
+    try {
+      localStorage.setItem(STORAGE_KEY, chosen);
+    } catch (e) {}
 
-    getButtons().forEach((btn) => {
-      const btnLang = normalise(btn.getAttribute("data-lang-switch") || btn.getAttribute("data-lang"));
-      const isActive = btnLang === chosen;
-      btn.classList.toggle("active", isActive);
-      btn.setAttribute("aria-pressed", String(isActive));
+    getSwitcherButtons().forEach((button) => {
+      const isActive = buttonLanguage(button) === chosen;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   }
 
-  const saved = localStorage.getItem(STORAGE_KEY);
-  const initial = saved || (root.getAttribute("lang") === "zh-HK" ? "zh" : "en");
-  applyLanguage(initial);
+  function initLanguageSwitcher() {
+    let initial = "en";
+    try {
+      initial = localStorage.getItem(STORAGE_KEY) || initial;
+    } catch (e) {}
+    applyLanguage(initial);
 
-  getButtons().forEach((btn) => {
-    btn.addEventListener("click", function () {
-      applyLanguage(this.getAttribute("data-lang-switch") || this.getAttribute("data-lang"));
+    getSwitcherButtons().forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        applyLanguage(buttonLanguage(this));
+      });
     });
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initLanguageSwitcher);
+  } else {
+    initLanguageSwitcher();
+  }
 
   window.vpcpaSetLanguage = applyLanguage;
 })();
