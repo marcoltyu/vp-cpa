@@ -83,7 +83,9 @@
 })();
 
 
-// Cleanup v5: robust language switcher for desktop and mobile
+
+
+// Cleanup v6: use Claude's original .lang-toggle design and make it stable
 (function () {
   const STORAGE_KEY = "vpcpa_language";
   const root = document.documentElement;
@@ -92,34 +94,30 @@
     return lang === "zh" || lang === "zh-HK" ? "zh" : "en";
   }
 
+  function getButtons() {
+    return Array.from(document.querySelectorAll(".lang-toggle button, [data-lang-switch]"));
+  }
+
   function applyLanguage(lang) {
     const chosen = normalise(lang);
     root.setAttribute("lang", chosen === "zh" ? "zh-HK" : "en-HK");
     localStorage.setItem(STORAGE_KEY, chosen);
 
-    document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
-      btn.classList.toggle("active", normalise(btn.getAttribute("data-lang-switch")) === chosen);
-      btn.setAttribute("aria-pressed", String(normalise(btn.getAttribute("data-lang-switch")) === chosen));
+    getButtons().forEach((btn) => {
+      const btnLang = normalise(btn.getAttribute("data-lang-switch") || btn.getAttribute("data-lang"));
+      const isActive = btnLang === chosen;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
     });
-
-    // Close mobile nav after language choice, if the site uses an open class.
-    const nav = document.querySelector(".main-nav");
-    const navToggle = document.querySelector(".nav-toggle");
-    if (nav && nav.classList.contains("open")) {
-      nav.classList.remove("open");
-    }
-    if (navToggle) {
-      navToggle.setAttribute("aria-expanded", "false");
-    }
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
   const initial = saved || (root.getAttribute("lang") === "zh-HK" ? "zh" : "en");
   applyLanguage(initial);
 
-  document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      applyLanguage(btn.getAttribute("data-lang-switch"));
+  getButtons().forEach((btn) => {
+    btn.addEventListener("click", function () {
+      applyLanguage(this.getAttribute("data-lang-switch") || this.getAttribute("data-lang"));
     });
   });
 
