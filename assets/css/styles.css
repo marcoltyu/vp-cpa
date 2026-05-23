@@ -1768,3 +1768,50 @@ html[lang="en-HK"] .hv-list li[data-lang="en"],
 html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
   display: grid !important;
 }
+
+
+/* Cleanup v7: final language visibility priority */
+html:not([lang="zh-HK"]) [data-lang="zh"],
+html[lang="en-HK"] [data-lang="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="zh"],
+html[lang="en-HK"] [data-lang-inline="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="en"],
+html[lang="en-HK"] [data-lang-inline="en"] {
+  display: inline !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="zh"] {
+  display: inline !important;
+}
+
+/* Preserve hero visual layout only for the visible list items */
+html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
+html[lang="en-HK"] .hv-list li[data-lang="en"],
+html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
+  display: grid !important;
+}
+
+/* Keep Claude's original toggle design, only ensure it can be clicked */
+.lang-toggle,
+.lang-toggle button,
+[data-i18n-switch] {
+  pointer-events: auto !important;
+}
+
+.lang-toggle button {
+  cursor: pointer !important;
+}
