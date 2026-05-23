@@ -1602,3 +1602,118 @@ html[lang="zh-HK"] article[data-lang="zh"] {
     max-width: 100% !important;
   }
 }
+
+
+/* Cleanup v5: visible and stable language switcher */
+.header-lang-toggle,
+.mobile-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid rgba(176, 145, 83, 0.26);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 18px rgba(12, 32, 58, 0.05);
+}
+
+.header-lang-toggle button,
+.mobile-lang-toggle button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: transparent;
+  color: var(--navy, #0b2545);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.header-lang-toggle button.active,
+.mobile-lang-toggle button.active {
+  background: var(--navy, #0b2545);
+  color: #fff;
+}
+
+.mobile-lang-toggle {
+  display: none;
+  margin: 12px 14px 4px;
+  width: fit-content;
+}
+
+/* Language display rules must stay at the end of CSS priority */
+html:not([lang="zh-HK"]) [data-lang="zh"],
+html[lang="en-HK"] [data-lang="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="zh"],
+html[lang="en-HK"] [data-lang-inline="zh"] {
+  display: none !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="en"] {
+  display: none !important;
+}
+
+html:not([lang="zh-HK"]) [data-lang-inline="en"],
+html[lang="en-HK"] [data-lang-inline="en"] {
+  display: inline !important;
+}
+
+html[lang="zh-HK"] [data-lang-inline="zh"] {
+  display: inline !important;
+}
+
+/* Keep visible block elements in their expected layout */
+html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
+html[lang="en-HK"] .hv-list li[data-lang="en"],
+html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
+  display: grid !important;
+}
+
+html:not([lang="zh-HK"]) p[data-lang="en"],
+html:not([lang="zh-HK"]) div[data-lang="en"],
+html:not([lang="zh-HK"]) section[data-lang="en"],
+html:not([lang="zh-HK"]) article[data-lang="en"],
+html[lang="en-HK"] p[data-lang="en"],
+html[lang="en-HK"] div[data-lang="en"],
+html[lang="en-HK"] section[data-lang="en"],
+html[lang="en-HK"] article[data-lang="en"],
+html[lang="zh-HK"] p[data-lang="zh"],
+html[lang="zh-HK"] div[data-lang="zh"],
+html[lang="zh-HK"] section[data-lang="zh"],
+html[lang="zh-HK"] article[data-lang="zh"] {
+  display: block !important;
+}
+
+/* Hero visual card UX refinement: this is a static divider, not a carousel indicator */
+.hv-rule,
+.hero-visual .rule,
+.hero-visual hr,
+.practice-card hr {
+  opacity: 0.42 !important;
+}
+
+.hv-rule::before,
+.hero-visual .rule::before,
+.practice-card hr::before {
+  display: none !important;
+}
+
+@media (max-width: 1200px) {
+  .header-lang-toggle {
+    display: none;
+  }
+
+  .mobile-lang-toggle {
+    display: inline-flex;
+  }
+}
