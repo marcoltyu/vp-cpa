@@ -1481,90 +1481,6 @@ html[lang="zh-HK"] .serif-italic { font-style: normal; color: var(--gold-700); }
   }
 }
 
-
-/* Cleanup v3: language display priority fix
-   The Claude redesign used component rules such as `.hv-list li { display: grid; }`.
-   Those rules appeared after the original [data-lang] hiding rules and accidentally
-   made both English and Chinese list items visible. These rules must come last. */
-
-html:not([lang="zh-HK"]) [data-lang="zh"],
-html[lang="en-HK"] [data-lang="zh"] {
-  display: none !important;
-}
-
-html[lang="zh-HK"] [data-lang="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="zh"],
-html[lang="en-HK"] [data-lang-inline="zh"] {
-  display: none !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="en"],
-html[lang="en-HK"] [data-lang-inline="en"] {
-  display: inline !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="zh"] {
-  display: inline !important;
-}
-
-/* Hero visual list needs grid for the visible language only */
-html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
-html[lang="en-HK"] .hv-list li[data-lang="en"],
-html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
-  display: grid !important;
-  grid-template-columns: 22px minmax(0, 1fr) !important;
-  gap: 14px !important;
-  width: 100% !important;
-  min-width: 0 !important;
-}
-
-/* Visible block language elements elsewhere */
-html:not([lang="zh-HK"]) p[data-lang="en"],
-html:not([lang="zh-HK"]) div[data-lang="en"],
-html:not([lang="zh-HK"]) section[data-lang="en"],
-html:not([lang="zh-HK"]) article[data-lang="en"],
-html[lang="en-HK"] p[data-lang="en"],
-html[lang="en-HK"] div[data-lang="en"],
-html[lang="en-HK"] section[data-lang="en"],
-html[lang="en-HK"] article[data-lang="en"],
-html[lang="zh-HK"] p[data-lang="zh"],
-html[lang="zh-HK"] div[data-lang="zh"],
-html[lang="zh-HK"] section[data-lang="zh"],
-html[lang="zh-HK"] article[data-lang="zh"] {
-  display: block !important;
-}
-
-/* Mobile safeguard for the hero visual list */
-@media (max-width: 768px) {
-  .hero-visual {
-    min-height: auto !important;
-  }
-
-  .hv-list {
-    display: grid !important;
-    gap: 20px !important;
-  }
-
-  .hv-list li {
-    min-width: 0 !important;
-  }
-
-  .hv-list li b,
-  .hv-list li span,
-  .hv-list li {
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-  }
-}
-
-
 /* Cleanup v4: fix hero visual list grid text wrapping
    The text after <b> must live inside one grid child. */
 .hv-list li .hv-copy {
@@ -1603,248 +1519,101 @@ html[lang="zh-HK"] article[data-lang="zh"] {
   }
 }
 
-
-/* Cleanup v5: visible and stable language switcher */
-.header-lang-toggle,
-.mobile-lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px;
-  border: 1px solid rgba(176, 145, 83, 0.26);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 8px 18px rgba(12, 32, 58, 0.05);
-}
-
-.header-lang-toggle button,
-.mobile-lang-toggle button {
-  appearance: none;
-  border: 0;
-  border-radius: 999px;
-  padding: 7px 10px;
-  background: transparent;
-  color: var(--navy, #0b2545);
-  font: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.header-lang-toggle button.active,
-.mobile-lang-toggle button.active {
-  background: var(--navy, #0b2545);
-  color: #fff;
-}
-
-.mobile-lang-toggle {
-  display: none;
-  margin: 12px 14px 4px;
-  width: fit-content;
-}
-
-/* Language display rules must stay at the end of CSS priority */
-html:not([lang="zh-HK"]) [data-lang="zh"],
-html[lang="en-HK"] [data-lang="zh"] {
-  display: none !important;
-}
-
-html[lang="zh-HK"] [data-lang="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="zh"],
-html[lang="en-HK"] [data-lang-inline="zh"] {
-  display: none !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="en"],
-html[lang="en-HK"] [data-lang-inline="en"] {
-  display: inline !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="zh"] {
-  display: inline !important;
-}
-
-/* Keep visible block elements in their expected layout */
-html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
-html[lang="en-HK"] .hv-list li[data-lang="en"],
-html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
-  display: grid !important;
-}
-
-html:not([lang="zh-HK"]) p[data-lang="en"],
-html:not([lang="zh-HK"]) div[data-lang="en"],
-html:not([lang="zh-HK"]) section[data-lang="en"],
-html:not([lang="zh-HK"]) article[data-lang="en"],
-html[lang="en-HK"] p[data-lang="en"],
-html[lang="en-HK"] div[data-lang="en"],
-html[lang="en-HK"] section[data-lang="en"],
-html[lang="en-HK"] article[data-lang="en"],
-html[lang="zh-HK"] p[data-lang="zh"],
-html[lang="zh-HK"] div[data-lang="zh"],
-html[lang="zh-HK"] section[data-lang="zh"],
-html[lang="zh-HK"] article[data-lang="zh"] {
-  display: block !important;
-}
-
-/* Hero visual card UX refinement: this is a static divider, not a carousel indicator */
+/* Hero rule divider — static, not a carousel indicator */
 .hv-rule,
 .hero-visual .rule,
 .hero-visual hr,
 .practice-card hr {
   opacity: 0.42 !important;
 }
-
 .hv-rule::before,
 .hero-visual .rule::before,
 .practice-card hr::before {
   display: none !important;
 }
 
+/* ============================================================
+   Lang toggle — sticky header variant (light background)
+   ============================================================ */
+.lang-toggle--hdr {
+  border-color: rgba(10, 38, 71, 0.18);
+}
+.lang-toggle--hdr button {
+  color: var(--muted);
+}
+.lang-toggle--hdr button.active {
+  background: var(--blue-900);
+  color: #fff;
+}
+/* Hide header toggle on mobile — use in-nav toggle instead */
 @media (max-width: 1200px) {
-  .header-lang-toggle {
-    display: none;
-  }
-
-  .mobile-lang-toggle {
-    display: inline-flex;
-  }
+  .lang-toggle--hdr { display: none !important; }
+}
+/* Hide utility-bar toggle on desktop — header toggle covers it */
+@media (min-width: 1201px) {
+  .utility-bar .lang-toggle { display: none !important; }
 }
 
-
-/* Cleanup v6: do not show extra language toggles added in v5.
-   Use Claude's original .lang-toggle design only. */
-.header-lang-toggle,
-.mobile-lang-toggle {
-  display: none !important;
+/* ============================================================
+   Lang toggle — inside mobile nav
+   ============================================================ */
+.lang-toggle--nav {
+  border-color: var(--hairline);
+  margin: 4px 14px 8px;
+}
+.lang-toggle--nav button {
+  color: var(--muted);
+}
+.lang-toggle--nav button.active {
+  background: var(--blue-900);
+  color: #fff;
+}
+/* Only show inside the open mobile nav */
+@media (min-width: 1201px) {
+  .lang-toggle--nav { display: none !important; }
 }
 
-/* Cleanup v6: make original Claude language toggle functional without changing its design */
-.lang-toggle button {
-  cursor: pointer;
-}
+/* ============================================================
+   Language visibility — single authoritative block
+   All rules carry !important to beat component layout overrides.
+   Single selector: html[lang="zh-HK"] (set by JS on every toggle).
+   ============================================================ */
 
-.lang-toggle button.active {
-  pointer-events: auto;
-}
+/* Hide off-language content */
+html[lang="zh-HK"] [data-lang="en"]             { display: none !important; }
+html:not([lang="zh-HK"]) [data-lang="zh"]        { display: none !important; }
+html[lang="zh-HK"] [data-lang-inline="en"]       { display: none !important; }
+html:not([lang="zh-HK"]) [data-lang-inline="zh"] { display: none !important; }
 
-/* Keep language display priority at the end */
-html:not([lang="zh-HK"]) [data-lang="zh"],
-html[lang="en-HK"] [data-lang="zh"] {
-  display: none !important;
-}
+/* Explicitly show correct inline variant */
+html:not([lang="zh-HK"]) [data-lang-inline="en"] { display: inline !important; }
+html[lang="zh-HK"]       [data-lang-inline="zh"] { display: inline !important; }
 
-html[lang="zh-HK"] [data-lang="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="zh"],
-html[lang="en-HK"] [data-lang-inline="zh"] {
-  display: none !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="en"],
-html[lang="en-HK"] [data-lang-inline="en"] {
-  display: inline !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="zh"] {
-  display: inline !important;
-}
-
+/* Hero visual list — must remain grid, not revert to block */
 html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
-html[lang="en-HK"] .hv-list li[data-lang="en"],
-html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
+html[lang="zh-HK"]       .hv-list li[data-lang="zh"] {
   display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) !important;
+  gap: 14px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+@media (max-width: 768px) {
+  html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
+  html[lang="zh-HK"]       .hv-list li[data-lang="zh"] {
+    grid-template-columns: 24px minmax(0, 1fr) !important;
+    align-items: start !important;
+  }
 }
 
-
-/* Cleanup v7: final language visibility priority */
-html:not([lang="zh-HK"]) [data-lang="zh"],
-html[lang="en-HK"] [data-lang="zh"] {
-  display: none !important;
-}
-
-html[lang="zh-HK"] [data-lang="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="zh"],
-html[lang="en-HK"] [data-lang-inline="zh"] {
-  display: none !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="en"] {
-  display: none !important;
-}
-
-html:not([lang="zh-HK"]) [data-lang-inline="en"],
-html[lang="en-HK"] [data-lang-inline="en"] {
-  display: inline !important;
-}
-
-html[lang="zh-HK"] [data-lang-inline="zh"] {
-  display: inline !important;
-}
-
-/* Preserve hero visual layout only for the visible list items */
-html:not([lang="zh-HK"]) .hv-list li[data-lang="en"],
-html[lang="en-HK"] .hv-list li[data-lang="en"],
-html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
-  display: grid !important;
-}
-
-/* Keep Claude's original toggle design, only ensure it can be clicked */
-.lang-toggle,
-.lang-toggle button,
-[data-i18n-switch] {
-  pointer-events: auto !important;
-}
-
-.lang-toggle button {
-  cursor: pointer !important;
-}
-
-
-/* Cleanup v9 proper binding: language visibility driven by data-current-lang */
-html[data-current-lang="en"] [data-lang="zh"],
-html[data-current-lang="zh"] [data-lang="en"] {
-  display: none !important;
-}
-
-html[data-current-lang="en"] [data-lang-inline="zh"],
-html[data-current-lang="zh"] [data-lang-inline="en"] {
-  display: none !important;
-}
-
-html[data-current-lang="en"] [data-lang-inline="en"],
-html[data-current-lang="zh"] [data-lang-inline="zh"] {
-  display: inline !important;
-}
-
-html[data-current-lang="en"] .hv-list li[data-lang="en"],
-html[data-current-lang="zh"] .hv-list li[data-lang="zh"] {
-  display: grid !important;
-}
-
-/* Keep original Claude language toggle clickable, without changing its design */
-.lang-toggle,
-.lang-toggle button,
-.lang-toggle [data-i18n-switch] {
-  pointer-events: auto !important;
-}
-
-.lang-toggle button {
-  cursor: pointer !important;
+/* Block-level elements — explicit show (beats component layout rules) */
+html:not([lang="zh-HK"]) p[data-lang="en"],
+html:not([lang="zh-HK"]) div[data-lang="en"],
+html:not([lang="zh-HK"]) section[data-lang="en"],
+html:not([lang="zh-HK"]) article[data-lang="en"],
+html[lang="zh-HK"] p[data-lang="zh"],
+html[lang="zh-HK"] div[data-lang="zh"],
+html[lang="zh-HK"] section[data-lang="zh"],
+html[lang="zh-HK"] article[data-lang="zh"] {
+  display: block !important;
 }
