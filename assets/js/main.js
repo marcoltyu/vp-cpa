@@ -39,7 +39,7 @@
     document.documentElement.setAttribute("lang", chosen === "zh" ? "zh-HK" : "en-HK");
     // Sync active state on every .lang-toggle button across all three toggle locations
     document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-      const isActive = normaliseLang(btn.dataset.lang || btn.textContent) === chosen;
+      const isActive = normaliseLang(btn.dataset.switchLang || btn.textContent) === chosen;
       btn.classList.toggle("active", isActive);
       btn.setAttribute("aria-pressed", String(isActive));
     });
@@ -47,8 +47,9 @@
   }
 
   // Bind all lang toggle buttons (utility bar + sticky header + mobile nav)
+  // Note: buttons use data-switch-lang (not data-lang) to avoid content visibility CSS
   document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-    btn.addEventListener("click", () => applyLang(btn.dataset.lang || btn.textContent));
+    btn.addEventListener("click", () => applyLang(btn.dataset.switchLang || btn.textContent));
   });
 
   // Restore saved preference on load
