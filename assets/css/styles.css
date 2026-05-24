@@ -1815,3 +1815,36 @@ html[lang="zh-HK"] .hv-list li[data-lang="zh"] {
 .lang-toggle button {
   cursor: pointer !important;
 }
+
+
+/* Cleanup v9 proper binding: language visibility driven by data-current-lang */
+html[data-current-lang="en"] [data-lang="zh"],
+html[data-current-lang="zh"] [data-lang="en"] {
+  display: none !important;
+}
+
+html[data-current-lang="en"] [data-lang-inline="zh"],
+html[data-current-lang="zh"] [data-lang-inline="en"] {
+  display: none !important;
+}
+
+html[data-current-lang="en"] [data-lang-inline="en"],
+html[data-current-lang="zh"] [data-lang-inline="zh"] {
+  display: inline !important;
+}
+
+html[data-current-lang="en"] .hv-list li[data-lang="en"],
+html[data-current-lang="zh"] .hv-list li[data-lang="zh"] {
+  display: grid !important;
+}
+
+/* Keep original Claude language toggle clickable, without changing its design */
+.lang-toggle,
+.lang-toggle button,
+.lang-toggle [data-i18n-switch] {
+  pointer-events: auto !important;
+}
+
+.lang-toggle button {
+  cursor: pointer !important;
+}
