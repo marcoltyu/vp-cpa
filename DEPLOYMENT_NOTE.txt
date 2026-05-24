@@ -1,15 +1,16 @@
-VPCPA GitHub Pages safe version.
+VPCPA cleanup v9 proper language binding.
 
-Important:
-1. Upload the CONTENTS of this folder to the repository root.
-2. Keep .nojekyll at the repository root.
-3. Do not upload markdown cleanup notes or SCSS files.
-4. GitHub Pages should serve this as a static HTML site.
-5. If using GitHub Actions, use a static HTML Pages workflow, not a Jekyll build workflow.
+This version:
+1. Keeps Claude's original language toggle design.
+2. Removes extra language toggle UI from earlier attempts.
+3. Binds the previously successful language switching logic to .lang-toggle button.
+4. Uses html[data-current-lang] for reliable CSS display.
+5. Keeps .nojekyll for GitHub Pages static deployment.
 
-Recommended GitHub Pages setting:
-Settings > Pages > Build and deployment > Source: Deploy from a branch
-Branch: main
-Folder: /root
+Upload the CONTENTS of this folder to the repository root.
 
-If using Actions and it still runs Jekyll, disable that workflow or switch to static HTML deployment.
+After upload:
+1. Confirm GitHub Pages build succeeds.
+2. Open the site in incognito mode.
+3. Click the original right-side EN / 繁中 toggle.
+4. If browser cache is stubborn, open assets/js/main.js?v=9 directly to confirm the latest JS is served.
