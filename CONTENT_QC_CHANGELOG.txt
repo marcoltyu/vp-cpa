@@ -1,0 +1,15 @@
+VPCPA content QC v1
+
+Key changes
+
+1. Revised homepage positioning for businesses with Hong Kong operations and cross border interests.
+2. Replaced draft-like or overly literary wording with clearer professional language.
+3. Corrected the About page office description.
+4. Replaced Chinese references to audit working papers with audit schedules and supporting information where appropriate.
+5. Revised partner responsibility wording so that signing statements are limited to audit reports where applicable.
+6. Changed one-business-day wording from a hard commitment to a service target.
+7. Improved Chinese translations of owner-managed businesses.
+8. Added What clients receive and FAQ sections to all six service pages.
+9. Added Insights and Privacy Notice pages.
+10. Updated navigation, footer links and sitemap.xml.
+11. Added .nojekyll for GitHub Pages static deployment.

@@ -32,4 +32,12 @@
     <loc>https://www.vp-cpa.com/services/sfc-licensed-corporations.html</loc>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://www.vp-cpa.com/insights.html</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.vp-cpa.com/privacy.html</loc>
+    <priority>0.30</priority>
+  </url>
 </urlset>

@@ -1617,3 +1617,122 @@ html[lang="zh-HK"] section[data-lang="zh"],
 html[lang="zh-HK"] article[data-lang="zh"] {
   display: block !important;
 }
+
+
+/* Content QC v1 additions */
+.faq-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.faq-item {
+  border: 1px solid rgba(16, 46, 79, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  position: relative;
+  padding: 18px 48px 18px 20px;
+  color: var(--navy);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.faq-item[open] summary::after {
+  content: "–";
+}
+
+.faq-answer {
+  padding: 0 20px 18px;
+  color: var(--text-muted);
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.insights-stack {
+  display: grid;
+  gap: 30px;
+}
+
+.insight-article {
+  padding: 34px;
+  border: 1px solid rgba(16, 46, 79, 0.13);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 50px rgba(13, 42, 72, 0.06);
+}
+
+.insight-article h2 {
+  max-width: 900px;
+}
+
+.insight-article > p:not(.eyebrow) {
+  max-width: 940px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.insights-disclaimer {
+  max-width: 920px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.privacy-prose {
+  max-width: 900px;
+}
+
+.privacy-prose section {
+  padding: 28px 0;
+  border-top: 1px solid rgba(16, 46, 79, 0.13);
+}
+
+.privacy-prose section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.privacy-prose h2 {
+  font-size: clamp(28px, 3vw, 40px);
+}
+
+.privacy-prose p {
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+@media (max-width: 680px) {
+  .insight-article {
+    padding: 24px 20px;
+  }
+
+  .faq-item summary {
+    padding-left: 16px;
+  }
+
+  .faq-answer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
