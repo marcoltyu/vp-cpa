@@ -49,7 +49,13 @@
   // Bind all lang toggle buttons (utility bar + sticky header + mobile nav)
   // Note: buttons use data-switch-lang (not data-lang) to avoid content visibility CSS
   document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-    btn.addEventListener("click", () => applyLang(btn.dataset.switchLang || btn.textContent));
+    btn.addEventListener("click", () => {
+      applyLang(btn.dataset.switchLang || btn.textContent);
+      if (btn.closest(".main-nav") && mainNav && navToggle) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
   });
 
   // Restore saved preference on load

@@ -1,0 +1,11 @@
+VPCPA content and design refinement v2
+
+1. Preserved the Claude navy, gold and warm ivory design language.
+2. Reduced visible homepage prose and replaced it with concise visual blocks.
+3. Replaced the full homepage partner biographies with a compact team teaser.
+4. Added three Insights preview cards to the homepage.
+5. Converted Insights into a hub page and added three individual article pages.
+6. Converted long service-page prose into concise overview, four-step process, deliverables and collapsed FAQ sections.
+7. Added branded abstract visuals for Insights, service sidebars and office placeholders.
+8. Kept unconfirmed partner profiles as formal placeholders.
+9. Preserved the original language toggle system and GitHub Pages .nojekyll deployment.

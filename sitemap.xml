@@ -40,4 +40,16 @@
     <loc>https://www.vp-cpa.com/privacy.html</loc>
     <priority>0.30</priority>
   </url>
+  <url>
+    <loc>https://www.vp-cpa.com/insights/hong-kong-statutory-audit.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://www.vp-cpa.com/insights/ird-estimated-assessment.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://www.vp-cpa.com/insights/sfc-year-end-checklist.html</loc>
+    <priority>0.65</priority>
+  </url>
 </urlset>
