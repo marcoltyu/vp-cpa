@@ -1,0 +1,8 @@
+Phase 2A Hero v3
+
+Only the homepage Hero image was changed.
+New background image: Hong Kong night city / CBD traffic scene.
+Desktop and mobile crops were regenerated.
+The navy overlay was deepened to keep text legible against bright lights.
+All other sections and inner pages remain unchanged.
+Cache version: 20260729-phase2a-hero-v3-night
