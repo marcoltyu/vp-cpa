@@ -1,0 +1,17 @@
+VPCPA Phase 1 mobile optimisation v3
+
+Homepage
+1. Removed duplicate statistics strip, industries section and separate approach section.
+2. Tightened hero, firm, services, partners and insights copy.
+3. Retained the Claude navy, gold, ivory and serif design language.
+
+Mobile
+1. Disabled reveal animation on phones and for reduced-motion users.
+2. Removed mobile backdrop blur and reduced spacing and typography scale.
+3. Changed service cards into compact information rows.
+4. Changed insights cards into native horizontal scroll with scroll snap.
+5. Collapsed About and Services submenus until tapped.
+6. Reduced hero visual, trust bar, partner roster, contact and footer height.
+7. Added lazy loading and asynchronous decoding to content images.
+
+No partner information or photographs were invented.

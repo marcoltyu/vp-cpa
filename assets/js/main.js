@@ -1,105 +1,111 @@
 /* ============================================================
-   VPCPA — main.js  (v10 clean)
-   - Mobile nav toggle
-   - Language toggle (EN / 繁中) — single system, localStorage persistence
-   - Scroll-reveal animations
-   - Active nav link highlight
+   VPCPA — main.js (Phase 1 mobile optimisation)
    ============================================================ */
-
 (function () {
-
-  /* ── Mobile nav ── */
+  const MOBILE_NAV = window.matchMedia("(max-width: 1200px)");
+  const REDUCED_OR_MOBILE = window.matchMedia("(max-width: 768px), (prefers-reduced-motion: reduce)");
   const navToggle = document.querySelector(".nav-toggle");
-  const mainNav   = document.querySelector(".main-nav");
+  const mainNav = document.querySelector(".main-nav");
+
+  function closeSubmenus(except) {
+    document.querySelectorAll(".nav-dropdown.submenu-open").forEach((item) => {
+      if (item === except) return;
+      item.classList.remove("submenu-open");
+      const trigger = item.querySelector(":scope > .nav-dropdown-trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function closeNav() {
+    if (!mainNav || !navToggle) return;
+    mainNav.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+    closeSubmenus();
+  }
+
   if (navToggle && mainNav) {
     navToggle.addEventListener("click", () => {
       const open = mainNav.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("nav-open", open && MOBILE_NAV.matches);
+      if (!open) closeSubmenus();
     });
-    // Close nav when a link is clicked (lang toggle buttons are not <a>, so unaffected)
-    mainNav.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
+
+    mainNav.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        if (!MOBILE_NAV.matches) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const item = trigger.closest(".nav-dropdown");
+        const willOpen = !item.classList.contains("submenu-open");
+        closeSubmenus(item);
+        item.classList.toggle("submenu-open", willOpen);
+        trigger.setAttribute("aria-expanded", String(willOpen));
       });
     });
+
+    mainNav.querySelectorAll("a:not(.nav-dropdown-trigger)").forEach((link) => {
+      link.addEventListener("click", closeNav);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (!MOBILE_NAV.matches) closeNav();
+    }, { passive: true });
   }
 
-  /* ── Language toggle ── */
+  /* Language toggle */
   const STORAGE_KEY = "vpcpa.lang";
-
-  function normaliseLang(val) {
-    val = (val || "").toString().toLowerCase();
-    return (val.includes("zh") || val.includes("繁") || val.includes("中")) ? "zh" : "en";
+  function normaliseLang(value) {
+    value = (value || "").toString().toLowerCase();
+    return (value.includes("zh") || value.includes("繁") || value.includes("中")) ? "zh" : "en";
   }
-
   function applyLang(lang) {
     const chosen = normaliseLang(lang);
-    // Drive CSS via html[lang] — the single source of truth
     document.documentElement.setAttribute("lang", chosen === "zh" ? "zh-HK" : "en-HK");
-    // Sync active state on every .lang-toggle button across all three toggle locations
-    document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-      const isActive = normaliseLang(btn.dataset.switchLang || btn.textContent) === chosen;
-      btn.classList.toggle("active", isActive);
-      btn.setAttribute("aria-pressed", String(isActive));
+    document.querySelectorAll(".lang-toggle button").forEach((button) => {
+      const active = normaliseLang(button.dataset.switchLang || button.textContent) === chosen;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
     });
     try { localStorage.setItem(STORAGE_KEY, chosen); } catch (_) {}
   }
-
-  // Bind all lang toggle buttons (utility bar + sticky header + mobile nav)
-  // Note: buttons use data-switch-lang (not data-lang) to avoid content visibility CSS
-  document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      applyLang(btn.dataset.switchLang || btn.textContent);
-      if (btn.closest(".main-nav") && mainNav && navToggle) {
-        mainNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
+  document.querySelectorAll(".lang-toggle button").forEach((button) => {
+    button.addEventListener("click", () => {
+      applyLang(button.dataset.switchLang || button.textContent);
+      if (button.closest(".main-nav")) closeNav();
     });
   });
-
-  // Restore saved preference on load
   let saved = "en";
   try { saved = localStorage.getItem(STORAGE_KEY) || "en"; } catch (_) {}
   applyLang(saved);
 
-  /* ── Scroll reveal ── */
+  /* Reveal animation: keep the polished desktop animation, remove mobile jank. */
   const revealItems = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && revealItems.length) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("visible");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-    revealItems.forEach((it) => io.observe(it));
-    // Fallback: show all after 1.5 s (catches off-screen iframes / background tabs)
-    setTimeout(() => revealItems.forEach((it) => it.classList.add("visible")), 1500);
+  if (REDUCED_OR_MOBILE.matches || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("visible"));
   } else {
-    revealItems.forEach((it) => it.classList.add("visible"));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+    revealItems.forEach((item) => observer.observe(item));
+    setTimeout(() => revealItems.forEach((item) => item.classList.add("visible")), 1400);
   }
 
-  /* ── Active nav link highlight ── */
+  /* Active nav link */
   const path = location.pathname.replace(/\/$/, "");
-  document.querySelectorAll(".main-nav a, .dropdown-menu a").forEach((a) => {
-    const href = a.getAttribute("href") || "";
-    if (!href.startsWith("#") && !href.startsWith("javascript:")) {
-      const linkPath = href
-        .replace(/\/$/, "")
-        .replace(/^\.\.\//, "/")
-        .replace(/^\.\//, "/");
-      if (
-        path.endsWith(linkPath.replace(/^\//, "")) ||
-        (linkPath === "/" && (path === "" || path.endsWith("index.html")))
-      ) {
-        a.style.color = "var(--blue-800)";
-      }
-    }
+  document.querySelectorAll(".main-nav a, .dropdown-menu a").forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    if (href.startsWith("#") || href.startsWith("javascript:")) return;
+    const clean = href.split("#")[0].replace(/\/$/, "").replace(/^\.\.\//, "/").replace(/^\.\//, "/");
+    if (clean && path.endsWith(clean.replace(/^\//, ""))) link.classList.add("current");
   });
-
 })();
