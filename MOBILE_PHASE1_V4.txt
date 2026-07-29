@@ -1,0 +1,16 @@
+VPCPA Mobile Phase 1 v4
+
+Targeted mobile menu correction
+
+Root cause
+The desktop dropdown hover and focus rule applied translateX(-50%) with
+higher CSS specificity. After tapping a mobile submenu trigger, focus-within
+remained active and moved the submenu outside the left edge of the screen.
+
+Fix
+1. Force all mobile dropdown menus to position: static.
+2. Remove left, top and transform values with a higher-specificity rule.
+3. Hide closed submenus with display: none.
+4. Show open submenus as a single-column compact grid.
+5. Keep the existing Insights horizontal swipe behaviour unchanged.
+6. Update CSS and JavaScript cache version to 20260729-phase1-v4.
