@@ -1,0 +1,11 @@
+VPCPA Mobile Phase 1 v5
+
+1. Added Our Approach / 服務方針 to the About submenu.
+2. The menu item links to a compact section inside about.html.
+3. Added four concise principles:
+   Partner led
+   Properly documented
+   Coordinated work
+   Practical communication
+4. Preserved the existing mobile menu and Insights horizontal swipe.
+5. Updated asset cache version to 20260729-phase1-v5.
