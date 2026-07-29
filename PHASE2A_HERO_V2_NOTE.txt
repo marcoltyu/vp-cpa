@@ -1,0 +1,5 @@
+Phase 2A Hero v2
+
+The previous version added the image files and CSS, but the actual homepage element is <section class="hero">. The required class was not attached, so no image appeared.
+
+This version attaches hero-section--with-photo to the real Hero and applies the Cosco Tower desktop and mobile images.
