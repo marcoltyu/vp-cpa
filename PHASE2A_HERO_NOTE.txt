@@ -1,0 +1,5 @@
+Phase 2A
+Only the homepage hero section was updated.
+Cosco Tower exterior is now used as the hero background with navy overlay.
+Separate desktop and mobile WebP crops were created.
+Other homepage sections and all inner pages remain unchanged.

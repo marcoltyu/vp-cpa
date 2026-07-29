@@ -2137,3 +2137,130 @@ html[lang="zh-HK"] article[data-lang="zh"] {
     margin-bottom: 16px;
   }
 }
+
+
+/* Phase 2A — homepage hero photo */
+.hero-section--with-photo {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: clamp(700px, 88vh, 980px);
+  background:
+    linear-gradient(90deg, rgba(8, 24, 46, 0.92) 0%, rgba(8, 24, 46, 0.84) 36%, rgba(8, 24, 46, 0.64) 58%, rgba(8, 24, 46, 0.38) 100%),
+    url("../images/cosco-hero-desktop.webp");
+  background-size: cover;
+  background-position: 74% center;
+  color: #f6f1e8;
+}
+
+.hero-section--with-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section--with-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7,18,34,0.20), rgba(7,18,34,0.45));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section--with-photo .container,
+.hero-section--with-photo .hero-layout,
+.hero-section--with-photo .hero-copy,
+.hero-section--with-photo .hero-aside {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section--with-photo .hero-copy,
+.hero-section--with-photo .hero-copy h1,
+.hero-section--with-photo .hero-copy p,
+.hero-section--with-photo .hero-copy .eyebrow,
+.hero-section--with-photo .hero-stats .stat-value,
+.hero-section--with-photo .hero-stats .stat-label {
+  color: #f6f1e8;
+}
+
+.hero-section--with-photo .hero-copy .eyebrow {
+  color: rgba(213, 178, 95, 0.95);
+}
+
+.hero-section--with-photo .hero-copy p,
+.hero-section--with-photo .hero-stats .stat-label {
+  color: rgba(246, 241, 232, 0.82);
+}
+
+.hero-section--with-photo .btn-secondary,
+.hero-section--with-photo .btn-outline,
+.hero-section--with-photo .button-secondary {
+  border-color: rgba(246, 241, 232, 0.35);
+  color: #f6f1e8;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+.hero-section--with-photo .btn-secondary:hover,
+.hero-section--with-photo .btn-outline:hover,
+.hero-section--with-photo .button-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(246, 241, 232, 0.5);
+}
+
+.hero-section--with-photo .hero-aside .practice-card,
+.hero-section--with-photo .hero-card,
+.hero-section--with-photo .hero-panel {
+  background: rgba(11, 28, 52, 0.72);
+  border: 1px solid rgba(213, 178, 95, 0.18);
+  box-shadow: 0 16px 40px rgba(4, 15, 31, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.hero-section--with-photo .hero-aside h3,
+.hero-section--with-photo .hero-aside h4,
+.hero-section--with-photo .hero-card h3,
+.hero-section--with-photo .hero-panel h3 {
+  color: #f6f1e8;
+}
+
+.hero-section--with-photo .hero-aside p,
+.hero-section--with-photo .hero-card p,
+.hero-section--with-photo .hero-panel p {
+  color: rgba(246, 241, 232, 0.78);
+}
+
+@media (max-width: 980px) {
+  .hero-section--with-photo {
+    min-height: clamp(760px, 92vh, 1080px);
+    background:
+      linear-gradient(180deg, rgba(8, 24, 46, 0.56) 0%, rgba(8, 24, 46, 0.74) 30%, rgba(8, 24, 46, 0.90) 58%, rgba(8, 24, 46, 0.96) 100%),
+      url("../images/cosco-hero-mobile.webp");
+    background-size: cover;
+    background-position: center 18%;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-section--with-photo {
+    min-height: clamp(780px, 100svh, 1120px);
+  }
+
+  .hero-section--with-photo .hero-copy {
+    padding-top: 120px;
+  }
+
+  .hero-section--with-photo .hero-aside .practice-card,
+  .hero-section--with-photo .hero-card,
+  .hero-section--with-photo .hero-panel {
+    background: rgba(10, 25, 47, 0.68);
+  }
+}
