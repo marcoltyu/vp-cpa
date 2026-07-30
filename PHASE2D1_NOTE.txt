@@ -1,0 +1,13 @@
+Phase 2D1 — Audit & Assurance service page
+
+Scope
+Only services/audit-and-assurance.html and supporting stylesheet rules were updated.
+
+Key decisions applied
+1. Hong Kong statutory audit is the main positioning.
+2. The visual focus is an audit process.
+3. No fixed number of weeks is stated.
+4. Timing is stated as depending on the completeness of records, complexity and management responses.
+
+Cache version
+20260730-phase2d1-audit

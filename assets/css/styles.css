@@ -3068,3 +3068,183 @@ html[lang="zh-HK"] article[data-lang="zh"] {
     grid-template-columns: 90px minmax(0, 1fr);
   }
 }
+
+
+/* Phase 2D1 — Audit and Assurance service page refinement */
+.service-audit-page .page-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-audit-page .page-hero::after {
+  content: "";
+  position: absolute;
+  right: min(7vw, 80px);
+  top: 34px;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(184,145,73,.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.service-audit-page .page-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.audit-focus-section p {
+  max-width: 64ch;
+}
+
+.audit-focus-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.audit-focus-pills span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid rgba(10,38,71,.12);
+  border-radius: 999px;
+  background: var(--blue-050);
+  color: var(--blue-800);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.audit-process-section {
+  position: relative;
+}
+
+.service-process-intro {
+  max-width: 64ch;
+  color: var(--body);
+}
+
+.service-audit-page .audit-process-grid {
+  grid-template-columns: repeat(4,1fr);
+  gap: 0;
+  border: 0;
+  margin-top: 28px;
+  position: relative;
+}
+
+.service-audit-page .audit-process-grid::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 46px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(184,145,73,0) 0%, rgba(184,145,73,.48) 12%, rgba(184,145,73,.48) 88%, rgba(184,145,73,0) 100%);
+  pointer-events: none;
+}
+
+.service-audit-page .audit-step {
+  min-height: 230px;
+  padding: 26px 24px 24px;
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(247,244,238,.86));
+  box-shadow: 0 14px 34px rgba(13,42,72,.04);
+}
+
+.service-audit-page .audit-step:not(:first-child) {
+  border-left: 0;
+}
+
+.service-audit-page .audit-step .service-process-num {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(184,145,73,.45);
+  border-radius: 50%;
+  color: var(--gold-700);
+  background: rgba(255,255,255,.88);
+}
+
+.service-audit-page .audit-step h3 {
+  margin-bottom: 10px;
+}
+
+.audit-timing-note {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  background: rgba(250,247,240,.86);
+}
+
+.audit-timing-kicker {
+  margin: 0 !important;
+  color: var(--gold-700) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase;
+}
+
+.audit-timing-note p:last-child,
+.audit-timing-note p:nth-last-child(2) {
+  margin: 0 !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 1180px) {
+  .service-audit-page .audit-process-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .service-audit-page .audit-step:nth-child(3) {
+    border-left: 1px solid var(--hairline);
+  }
+
+  .service-audit-page .audit-process-grid::before {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .service-audit-page .page-hero::after {
+    width: 140px;
+    height: 140px;
+    right: 18px;
+    top: 18px;
+  }
+
+  .audit-focus-pills {
+    gap: 8px;
+  }
+
+  .audit-focus-pills span {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+
+  .service-audit-page .audit-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-audit-page .audit-step {
+    min-height: 0;
+    padding: 20px;
+    border-left: 1px solid var(--hairline) !important;
+  }
+
+  .audit-timing-note {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px;
+  }
+}
