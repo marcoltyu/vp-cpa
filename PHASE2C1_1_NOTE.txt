@@ -1,0 +1,15 @@
+Phase 2C1.1 — Partner balance refinement
+
+Scope
+Only the About page Partner section was adjusted.
+
+Changes
+1. Changed the section message to Four partners. One professional standard.
+2. Converted the two confirmed Partner profiles into horizontal cards.
+3. Reduced the photographic area to approximately one third on desktop.
+4. Made mobile profiles compact with a small portrait on the left.
+5. Preserved the two unconfirmed Partner placeholders.
+6. Offices, timeline, Home, Services and Insights remain unchanged.
+
+Cache version
+20260730-phase2c1-1-balance
