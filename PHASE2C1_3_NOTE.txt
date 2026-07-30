@@ -1,0 +1,14 @@
+Phase 2C1.3 — Partner scale fix
+
+Instruction followed
+Keep the Phase 2C1.1 Partner section style and reduce the displayed photo area by about 20%.
+
+Changes
+1. Desktop partner photo column reduced from about 34% to 27.2%.
+2. Tablet partner photo column reduced from about 32% to 25.6%.
+3. Mobile partner photo width reduced from 112px to 90px.
+4. Partner photo crop and overall 2C1.1 layout style were preserved.
+5. No other About page styling was redesigned.
+
+Cache version
+20260730-phase2c1-3-scale-fix
