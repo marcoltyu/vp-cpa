@@ -1,0 +1,17 @@
+Phase 2C1 — About page visual refinement
+
+Scope
+Only the About page was visually restructured.
+
+Changes
+1. Converted the existing story timeline into visual cards.
+2. Rebuilt the two confirmed partner profiles as photo-led cards.
+3. Moved secondary partner information into native expandable details.
+4. Retained two formal placeholders for unconfirmed partner profiles.
+5. Added a real Cosco Tower exterior photograph to the Offices section.
+6. Replaced the old abstract office graphics with compact address panels.
+7. Added horizontal scrolling for partner and timeline cards on mobile.
+8. Home, Services, Insights and other inner pages were not restructured.
+
+Cache version
+20260730-phase2c1-about
