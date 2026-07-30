@@ -1,0 +1,15 @@
+Phase 2C1.2 — Partner team directory
+
+Scope
+Only the About page Partner section was tightened further.
+
+Changes
+1. Reduced the Partner cards to a compact team-directory format.
+2. Kept photographs as small portrait blocks instead of dominant profile images.
+3. Shortened the visible profile text to one concise line.
+4. Preserved the expandable details for users who want more information.
+5. Kept the two remaining Partner placeholders aligned to the same compact scale.
+6. Offices, timeline, Home, Services and Insights remain unchanged.
+
+Cache version
+20260730-phase2c1-2-directory
