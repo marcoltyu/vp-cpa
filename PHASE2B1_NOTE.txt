@@ -1,0 +1,15 @@
+Phase 2B1 — Homepage Partner Visual
+
+Scope
+Only the homepage Partner section was changed.
+
+Changes
+1. Replaced the plain roster with four portrait-ready cards.
+2. Used restrained navy and gold monogram placeholders.
+3. Kept unconfirmed partner details as formal placeholders.
+4. Mobile cards use horizontal scrolling to avoid increasing homepage length.
+5. Future partner portraits can replace the monogram area without changing the layout.
+6. Hero, Services, Insights and all inner pages remain unchanged.
+
+Cache version
+20260730-phase2b1-partners

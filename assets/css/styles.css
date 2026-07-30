@@ -2340,3 +2340,144 @@ html[lang="zh-HK"] article[data-lang="zh"] {
     background-position: center 20% !important;
   }
 }
+
+
+/* Phase 2B1 — homepage partner portrait-ready cards */
+.partner-roster--cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  border-top: 0;
+}
+
+.partner-profile-card {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 14px 34px rgba(13, 42, 72, 0.04);
+}
+
+.partner-photo-slot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(145deg, #123b66 0%, #082844 100%);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+.partner-photo-slot::before,
+.partner-photo-slot::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(184, 145, 73, 0.42);
+  border-radius: 50%;
+}
+
+.partner-photo-slot::before {
+  width: 116px;
+  height: 116px;
+}
+
+.partner-photo-slot::after {
+  width: 178px;
+  height: 178px;
+  opacity: 0.42;
+}
+
+.partner-photo-slot span {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border: 1px solid var(--gold-500);
+  border-radius: 50%;
+  color: var(--gold-400);
+  background: rgba(7, 29, 54, 0.88);
+  font-family: var(--font-display);
+  font-size: 25px;
+  letter-spacing: 0.04em;
+}
+
+.partner-profile-card:not(.confirmed) .partner-photo-slot {
+  background:
+    linear-gradient(rgba(10, 38, 71, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 38, 71, 0.045) 1px, transparent 1px),
+    linear-gradient(145deg, #f4efe4 0%, #e9e0ce 100%);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+.partner-profile-card:not(.confirmed) .partner-photo-slot span {
+  color: var(--gold-700);
+  background: rgba(251, 248, 241, 0.9);
+}
+
+.partner-profile-copy {
+  min-height: 108px;
+  padding: 19px 18px 18px;
+}
+
+.partner-profile-copy b {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.18;
+}
+
+.partner-profile-copy small {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+@media (max-width: 680px) {
+  .partner-roster--cards {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    margin-right: -16px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    border-top: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .partner-roster--cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .partner-profile-card {
+    flex: 0 0 min(74vw, 270px);
+    scroll-snap-align: start;
+  }
+
+  .partner-photo-slot {
+    aspect-ratio: 4 / 3;
+  }
+
+  .partner-profile-copy {
+    min-height: 94px;
+    padding: 16px;
+  }
+
+  .partner-profile-copy b {
+    font-size: 18px;
+  }
+}
