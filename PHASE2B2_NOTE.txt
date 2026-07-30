@@ -1,0 +1,8 @@
+Phase 2B2 — Partner photographs
+
+1. Added the confirmed photographs of Daisy and Marco to the homepage partner cards.
+2. Added separate 4:5 portrait crops to the About page.
+3. Preserved the two unconfirmed partner placeholders.
+4. Converted photographs to WebP and added lazy loading.
+5. Applied only light crop, compression and colour harmonisation. No facial alteration.
+6. Cache version: 20260730-phase2b2-photos.

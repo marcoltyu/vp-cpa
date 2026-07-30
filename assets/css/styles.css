@@ -2481,3 +2481,40 @@ html[lang="zh-HK"] article[data-lang="zh"] {
     font-size: 18px;
   }
 }
+
+
+/* Phase 2B2 — confirmed partner photographs */
+.partner-photo-slot--image::before,
+.partner-photo-slot--image::after {
+  display: none;
+}
+
+.partner-photo-slot--image img,
+.pd-portrait--photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.partner-photo-slot--image img {
+  object-position: center 46%;
+}
+
+.pd-portrait--photo img {
+  object-position: center 44%;
+}
+
+.partner-profile-card.confirmed .partner-photo-slot--image {
+  background: #e8edf0;
+}
+
+.pd-portrait--photo {
+  background: #e8edf0;
+}
+
+@media (max-width: 680px) {
+  .partner-photo-slot--image img {
+    object-position: center 44%;
+  }
+}
